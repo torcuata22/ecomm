@@ -47,7 +47,7 @@
                         </div>
 
                         <a href="/{{product.id}}" class="btn btn-warning">Details</a>
-                        <a  href="" class="btn btn-warning">Add to Cart</a>
+                        <button  href="" class="btn btn-warning atc" id="{{product.id}}">Add to Cart</button>
                         
                     </div>
                 </div>
@@ -84,7 +84,7 @@
     </div>
 </body>
 <script type="text/javascript">
-    console.log("is this working??");
+
     //logic to add items to cart 
     if(localStorage.getItem('cart')==null){ //'cart' from local storage, they're not the same!
         var cart = {}; //javascript object
@@ -92,6 +92,14 @@
     else{
         cart = JSON.parse(localStorage.getItem('cart'));//stores actual localstorage cart into cart variable
     }
+//access "add to cart" button, we need to use its class (atc):
+$(document).on('click','.atc',function(){
+    console.log('add to cart button is clicked')
+    var item_id = this.id.toString();
+    console.log(item_id)
+});
+
+
 </script>
 </html>
 
