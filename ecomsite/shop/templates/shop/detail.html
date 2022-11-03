@@ -18,7 +18,7 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="{{ product_object.image }}">
+                        <img src="{{ product_object.image }}" width="500px" height="500px">
                     </div>
 
                 </div>
@@ -33,12 +33,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        {{ product_object.price }}
+                       Regular Price: ${{ product_object.price }}
                     </div>              
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        {{ product_object.discount_price }}
+                        Buy it on Sale: ${{ product_object.discount_price }}
                     </div>                   
                 </div>
                 <div class="row">
