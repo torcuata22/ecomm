@@ -83,7 +83,7 @@
                         </div>
 
                         <a href="/{{product.id}}" class="btn btn-warning">Details</a>
-                        <button  href="" class="btn btn-warning atc" id="{{product.id}}">Add to Cart</button>
+                        <button  href="" class="btn atc btn-warning" id="{{product.id}}">Add to Cart</button>
                         
                     </div>
                 </div>
@@ -119,6 +119,7 @@
 
     </div>
 </body>
+
 <script type="text/javascript">
 
     //logic to add items to cart 
@@ -135,23 +136,44 @@ $(document).on('click','.atc',function(){
     console.log(item_id);
 
     if(cart[item_id] != undefined) {
-        cart[item_id]+=1
-    }else { //cart has never been in cart
+        cart[item_id] = cart[item_id] + 1;
+    }else {                             //item has never been in cart
         cart[item_id] = 1
     }
    console.log(cart);
    localStorage.setItem('cart',JSON.stringify(cart));
 //logic to display number of items in cart:
-    document.getElementById("cart").innerHTML = "Cart (" +Object.keys(cart).length + ")"
+    document.getElementById("cart").innerHTML = "Cart (" + Object.keys(cart).length + ")"
    
 });
 
 //enables popover everywhere
-$(function () {
-  $('[data-toggle="popover"]').popover()
-  document.getElementById("cart").setAttribute('data-content', '<h5>This is your cart</h5>');
-})
+ //$(function () {
+   //$('[data-toggle="popover"]').popover()
+  //document.getElementById("cart").setAttribute('data-content', '<h5>This is your cart</h5>');
+ //})
 
+displayCart(cart);
+
+//logic to add cart contents to popover:
+function displayCart(cart){
+    var cartString = "";
+    cartString += "<h5>This is your cart</h5>";
+    var cartIndex = 1;
+    //to get items, we need to access cartObject from localStorage and loop:
+    let cartObject = JSON.parse(localStorage.getItem('cart'))
+
+    for(item in cartObject){
+        console.log(cartObject[item][0])
+        console.log(cartObject[item][1])
+        cartString += cartObject[item][1] + "Qty: " + cartObject[item][0] + "</br>"
+    }
+
+
+    document.getElementById("cart").setAttribute('data-content', cartString); 
+    $('[data-toggle="popover"]').popover();
+}
+//DisplayCart(cart)
 </script>
 </html>
 
