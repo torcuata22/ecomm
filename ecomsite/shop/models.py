@@ -20,3 +20,6 @@ class Order(models.Model):
     city=models.CharField(max_length=250)
     state=models.CharField(max_length=250)
     zipcode=models.CharField(max_length=250)
+
+    #def __str__(self):
+        #return self.id
