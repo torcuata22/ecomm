@@ -9,8 +9,7 @@ class Products(models.Model):
     description = models.TextField()
     image = models.CharField(max_length=300)
 
-    def __str__(self):
-        return self.title
+    
 
 class Order(models.Model):
     items=models.CharField(max_length=1000)
@@ -22,5 +21,4 @@ class Order(models.Model):
     zipcode=models.CharField(max_length=250)
     total = models.CharField(max_length=200)
 
-    #def __str__(self):
-        #return self.id
+  
