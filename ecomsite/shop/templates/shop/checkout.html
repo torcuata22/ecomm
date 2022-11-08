@@ -105,11 +105,11 @@
  for(item in cart){
    let name = cart[item][1];
    let quantity = cart[item][0];
-   let price = Number(cart[item][2]);
-   total = Number(total + cart[item][2]);
+   let price = cart[item][2];
+   total = total + cart[item][2];
 
   
-   itemString = `  <li class="list-group-item d-flex justify-content-between align-items-center">${quantity} of  ${name}     <span class="badge badge-warning badge-pill">${price}</span></li>`;
+   itemString = `<li class="list-group-item d-flex justify-content-between align-items-center">${quantity} of ${name}<span class="badge badge-warning badge-pill">${price}</span></li>`;
   
    $('#item_list').append(itemString);
  }

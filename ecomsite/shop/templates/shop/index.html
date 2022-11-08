@@ -76,9 +76,7 @@
                     <img src="{{product.image}}" alt="" class="card-img-top" height="210" width="200">
                     <div class="card-body">
                         <div id= "nm{{ product.id }}" class="card-title">{{ product.title }}</div>
-                        <div id="price{{product.id}}" class="card-text">
-                            ${{ product.price }}
-                        </div>
+                        <div id="price{{product.id}}" class="card-text">{{ product.price }}</div>
 
                         <a href="/{{product.id}}" class="btn btn-warning">Details</a>
                         <button  href="" class="btn atc btn-warning" id="{{product.id}}">Add to Cart</button>
